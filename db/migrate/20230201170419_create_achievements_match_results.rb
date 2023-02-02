@@ -1,4 +1,6 @@
-class CreateAchievementsMatchResults< ActiveRecord::Migration[7.0]
+# frozen_string_literal: true
+
+class CreateAchievementsMatchResults < ActiveRecord::Migration[7.0]
   def change
     create_table :achievements_match_results do |t|
       t.references :match_result, foreign_key: true

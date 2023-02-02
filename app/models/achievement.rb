@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Achievement < ApplicationRecord
   has_and_belongs_to_many :match_results
   has_many :players, through: :match_results

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Player < ApplicationRecord
   belongs_to :team
   has_many :match_results
@@ -7,6 +9,7 @@ class Player < ApplicationRecord
   validates :first_name, :last_name, presence: true
 
   def got_an_achievement?(achievement)
-    MatchResult.joins(:player, :achievements).where(player: self, achievements: achievement).order(created_at: :desc).limit(5).exists?
+    MatchResult.joins(:player, :achievements).where(player: self,
+                                                    achievements: achievement).order(created_at: :desc).limit(5).exists?
   end
 end

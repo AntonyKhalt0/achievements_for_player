@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateMatchResults < ActiveRecord::Migration[7.0]
   def change
     create_table :match_results do |t|
