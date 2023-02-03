@@ -24,20 +24,25 @@ class AchievementsService
   end
 
   def run_more_10000_meters
-    achievement = Achievement.find_by(rule: 'run_more_10000_meters')
+    rule = 'run_more_10000_meters'
+    achievement = Achievement.find_by(rule: rule)
     return unless @match_result.distance_covered >= 10_000
 
-    @player.first_achive_count += 1
-    @player.save
+    increase_achivements_count(rule)
     achievement
   end
 
   def scored_at_least_two_goals
-    achievement = Achievement.find_by(rule: 'scored_at_least_two_goals')
+    rule = 'scored_at_least_two_goals'
+    achievement = Achievement.find_by(rule: rule)
     return unless @match_result.number_of_goals >= 2
 
-    @player.second_achive_count += 1
-    @player.save
+    increase_achivements_count(rule)
     achievement
+  end
+
+  def increase_achivements_count(rule)
+    @player.achievements_score[rule] += 1
+    @player.save
   end
 end

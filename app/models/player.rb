@@ -6,7 +6,7 @@ class Player < ApplicationRecord
   has_many :matches, through: :match_results
   has_many :achievements, through: :match_results
 
-  validates :first_name, :last_name, presence: true
+  validates :first_name, :last_name, :achievements_score, presence: true
 
   def got_an_achievement?(achievement)
     MatchResult.joins(:player, :achievements).where(player: self,

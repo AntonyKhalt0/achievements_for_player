@@ -10,6 +10,7 @@ RSpec.describe Player, type: :model do
 
   it { should validate_presence_of :first_name }
   it { should validate_presence_of :last_name }
+  it { should validate_presence_of :achievements_score }
 
   describe '.got_an_achievement?' do
     it 'true' do
